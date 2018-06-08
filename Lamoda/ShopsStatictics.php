@@ -51,11 +51,9 @@ $todayShops=(string)date("d-m-Y").' Shops.txt';
 $todayResponses=(string)date("d-m-Y").' Responses.txt';
 $todayTotal=(string)date("d-m-Y").' Total.txt';
 $todayTotalcsv=(string)date("d-m-Y").' Total.csv';
-//$todayResponseesUrl=(string)date("d-m-Y").' Url.csv';
 file_put_contents('Raitings\\'.$todayRaiting, $textRaiting);
 file_put_contents('Shops\\'.$todayShops, $textShops);
 file_put_contents('Responses\\'.$todayResponses, $textResponses);
-//file_put_contents($todayResponseesUrl, $textUrl);s
 $cts=count($textShops);//counts of text shops
 echo $cts;
 for($i=0;$i<$cts;++$i)
