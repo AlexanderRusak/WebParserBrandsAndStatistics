@@ -25,23 +25,23 @@ for ($i=0; $i<$pages ; ++$i) {
 	$resShops=curl_exec($ch);
 	curl_close($ch);
 	$doc=phpQuery::newDocument($resShops);
-	$shops=$doc->find('.store-box__title');
-	foreach ($shops as $shop) {
+    $shops=$doc->find('.store-box__title');
+	foreach ($shops as $key=>$shop) {
 		$pqShop=pq($shop);
 		$textShops[]=$pqShop->text()." ";
 	}
 $raitings=$doc->find('.raiting')->find('span');
-	foreach ($raitings as $raiting) {
+	foreach ($raitings as $key=> $raiting) {
 		$pqRaiting=pq($raiting);
 		$textRaiting[]=$pqRaiting->text()." ";
 	}
 $responses=$doc->find('.response')->find('span');
-	foreach ($responses as $response) {
+	foreach ($responses as $key=>$response) {
 		$pqResponse=pq($response);
 		$textResponses[]=$pqResponse->text()." ";
 	}
 $responsesUrl=$doc->find('.response')->find('a');
-	foreach ($responsesUrl as $resUrl) {
+	foreach ($responsesUrl as $key=>$resUrl) {
 		$pqUrl=pq($resUrl);
 		$textUrl[]=$pqUrl->attr('href');
 	}
