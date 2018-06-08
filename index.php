@@ -2,5 +2,3 @@
 	<a href='Lamoda/ShopsStatictics.php'>Statistics<a>
 	<a href='Otzovik/OtzovikLinks.php'>Links<a>
 
-		<a href="Lamoda/111.php">test</a>
-
