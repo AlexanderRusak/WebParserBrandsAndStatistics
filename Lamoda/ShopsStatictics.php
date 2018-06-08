@@ -46,7 +46,6 @@ $responsesUrl=$doc->find('.response')->find('a');
 		$textUrl[]=$pqUrl->attr('href');
 	}
 }
-///fffewfwefwfwefekelkgergekrjgnkenefnkbnkbngrbrgklblkr
 $todayRaiting=(string)date("d-m-Y").' Raiting.txt';
 $todayShops=(string)date("d-m-Y").' Shops.txt';
 $todayResponses=(string)date("d-m-Y").' Responses.txt';
