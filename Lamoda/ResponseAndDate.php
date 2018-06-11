@@ -51,9 +51,9 @@ foreach ($comments as $comment)
 	for($j=0; $j<$size; ++$j)
 	{
 		
-	
-      @$textSplit[]=$textNames[$j]." ".$textDates[$j]." ".$textComments[$j].";";
-      echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ".$textNames[$j]." ".$textDates[$j]." ".$textComments[$j].";";
+	  
+      $textSplit[]=$textNames[$j]." ".$textDates[$j]." ".$textComments[$j].";";
+
        
 	}
 	

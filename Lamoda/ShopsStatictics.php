@@ -11,12 +11,22 @@ function shopsName(){
 $fileTotal=[];
 $today; 
 $url='https://www.vitrini.by/places/shopping/clothes/';
-$ch=curl_init($url);
+try {
+	$ch=curl_init($url);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $res=curl_exec($ch);
+  throw new Exception("Execution if failed");
+} catch (Exception $ExecutionErr) {
+	echo $ExecutionErr->getMessage();
+}
+
+  
 curl_close($ch);
+
 $doc=phpQuery::newDocument($res);
+if (is_null($doc)) 
+	echo "Error";
 $pages=$doc->find('.paging')->find('li:last')->text();
 for ($i=0; $i<$pages ; ++$i) { 
 	$url='https://www.vitrini.by/places/shopping/clothes/'.$i."/";
@@ -26,8 +36,6 @@ for ($i=0; $i<$pages ; ++$i) {
 	$resShops=curl_exec($ch);
 	curl_close($ch);
 	$doc=phpQuery::newDocument($resShops);
-	
-	
 $shops=$doc->find('.store-box__title');
 	foreach ($shops as $key=>$shop) {
 		$pqShop=pq($shop);
@@ -69,5 +77,5 @@ getStatistics($textUrl,$textShops,$textResponses);
 }
 shopsName();
 $time = microtime(true) - $start;
-printf('Скрипт выполнялся %.4F сек.', $time);
+printf('Скрипт выполнялся %.4F мин.', $time/60);
 ?>
