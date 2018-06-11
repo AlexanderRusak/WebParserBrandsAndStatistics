@@ -1,5 +1,6 @@
 <?php
 header('Content-type:text/html; charset="utf-8"');
+$start = microtime(true);
 set_time_limit(0);
 ini_set('MAX_EXECUTION_TIME', 86400);
 ini_set('MAX_EXECUTION_TIME', -1);
@@ -25,7 +26,9 @@ for ($i=0; $i<$pages ; ++$i) {
 	$resShops=curl_exec($ch);
 	curl_close($ch);
 	$doc=phpQuery::newDocument($resShops);
-    $shops=$doc->find('.store-box__title');
+	
+	
+$shops=$doc->find('.store-box__title');
 	foreach ($shops as $key=>$shop) {
 		$pqShop=pq($shop);
 		$textShops[]=$pqShop->text()." ";
@@ -65,4 +68,6 @@ for($i=0;$i<$cts;++$i)
 getStatistics($textUrl,$textShops,$textResponses);
 }
 shopsName();
+$time = microtime(true) - $start;
+printf('Скрипт выполнялся %.4F сек.', $time);
 ?>

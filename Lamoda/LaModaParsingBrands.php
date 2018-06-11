@@ -10,7 +10,7 @@ $brands=$doc->find('.brands__link');
 		$pqBrand=pq($brand);
 		$textBrands[]=$pqBrand->text().",";
 	}
-file_put_contents('brands.csv', $textBrands);
+file_put_contents('Brands\\brands.csv', $textBrands);
 }
 brandsName();
 
