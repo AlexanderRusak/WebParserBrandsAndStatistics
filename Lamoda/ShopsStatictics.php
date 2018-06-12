@@ -42,7 +42,7 @@ $shops=$doc->find('.store-box__title');
 		$textShops[]=$pqShop->text()." ";
 	}
 $raitings=$doc->find('.raiting')->find('span');
-	foreach ($raitings as $key=> $raiting) {
+	foreach ($raitings as $key=>$raiting) {
 		$pqRaiting=pq($raiting);
 		$textRaiting[]=$pqRaiting->text()." ";
 	}

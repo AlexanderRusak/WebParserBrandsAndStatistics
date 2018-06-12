@@ -31,17 +31,17 @@ $doc=phpQuery::newDocument($res);
 $names=$doc->find('.section-comments__rev')->find('span');
 $dates=$doc->find('.section-comments__rev')->find('time');
 $comments=$doc->find('.text');
-foreach ($names as $name) 
+foreach ($names as $key=>$name) 
     {
 		$pqName=pq($name);
 		$textNames[]=$pqName->text();
 	}
-foreach ($dates as $date) 
+foreach ($dates as $key=>$date) 
     {
 		$pqDate=pq($date);
 		$textDates[]=$pqDate->text();
 	}
-foreach ($comments as $comment) 
+foreach ($comments as $key=>$comment) 
     {
 		$pqComments=pq($comment);
 		$textComments[]=$pqComments->text();
