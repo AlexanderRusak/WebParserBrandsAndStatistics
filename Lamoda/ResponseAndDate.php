@@ -1,5 +1,5 @@
 <?php
-error_reporting(-1);
+//error_reporting(-1);
 header('Content-Type: text/html; charset=utf-8');
 set_time_limit(0);
 ini_set('MAX_EXECUTION_TIME', 86400);
@@ -20,7 +20,6 @@ for ($i=0; $i<$ctsCommentsUrl; ++$i) {
 $textNames=[];
 $textDates=[];
 $textComments=[];
-$textSplit=[];
 $url=$CommentsUrl[$i];
 $ch=curl_init($url);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -48,17 +47,12 @@ foreach ($comments as $key=>$comment)
 	}
 	
 	$size=count($textNames);
+	$textSplit=[$size];
 	for($j=0; $j<$size; ++$j)
 	{
-		
-	  
-      $textSplit[]=$textNames[$j]." ".$textDates[$j]." ".$textComments[$j].";";
-
-       
+      $textSplit[$j]=$textNames[$j]." ".$textDates[$j]." ".$textComments[$j].";";
 	}
-	
-	 Test($textSplit,$Shops[$i]);
-	 
+	 Test($textSplit,$Shops[$i]); 
  }
 }
 ?>
